@@ -1,20 +1,56 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en_GB">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="scaffolded-by" content="https://github.com/dart-lang/stagehand">
-    <title>OneClickLinks</title>
+
+    <title>One Click Links</title>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
-    <script defer src="main.dart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
 
-  <div id="output"></div>
+<div id="container">
+
+    <div class="input-group">
+
+        <div class="explanation">
+            Every generated link self-destructs after the first use.
+        </div>
+
+        <label for="link" class="hidden">Link to obfuscate</label>
+        <input type="text" id="link" placeholder="Link to obfuscate">
+
+        <button id="obfuscate">GO!</button>
+
+        <label for="out-link" class="hidden">Obfuscated link</label>
+        <input type="text" readonly id="out-link" placeholder="Obfuscated link">
+
+    </div>
+</div>
 
 </body>
+
+<script>
+    let input  = document.getElementById('link');
+    let button = document.getElementById('obfuscate');
+    let output = document.getElementById('out-link');
+
+    button.addEventListener('click', e => {
+        axios.post('/add', null, { params:  {
+            url: input.value
+        }})
+        .then(res => {
+            output.value = window.location.protocol + '//' + window.location.hostname + '/l/' + res.data.nonce
+        })
+        .catch(console.error);
+    })
+</script>
+
 </html>

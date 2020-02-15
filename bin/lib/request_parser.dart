@@ -9,6 +9,7 @@ class RequestParser {
     var out = {};
     for (final pair in keyValPairs) {
       var kv = pair.split('=');
+      if (kv.length < 2) break;
 
       var value =
              int.tryParse(kv[1])

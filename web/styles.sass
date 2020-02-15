@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto)
+
+$foreground: #e6e6e6
+$background: #0d0d0d
+$input-fg: rgba(255, 255, 255, 0.5)
+$input-bg: rgba(255, 255, 255, 0.05)
+$hover: rgba(200, 200, 255, 0.05)
+$focus: rgba(0, 103, 255, 0.5)
+
+*, *:before, *:after
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+html, body
+  width: 100%
+  height: 100%
+  font-family: 'Roboto', sans-serif
+
+  color: $foreground
+  background: $background
+
+#output
+  padding: 20px
+  text-align: center
+
+#container
+  display: flex
+  flex-direction: column
+  width: 100%
+  height: 100%
+  align-items: center
+  justify-content: center
+
+div.input-group
+  display: flex
+  flex-direction: column
+  width: 40vw
+  height: 100%
+  align-items: center
+  justify-content: center
+  @media only screen and (min-width: 300px) // Smartphone portrait
+    width: 98vw
+  @media only screen and (min-width: 480px) // Smartphone landscape
+    width: 80vw
+  @media only screen and (min-width: 768px) // Tablet portrait
+    width: 60vw
+  @media only screen and (min-width: 1024px) // Desktop/tablet landscape
+    width: 40vw
+
+  &>*
+    width: 100%
+    height: 2.5rem
+    line-height: 1.5rem
+    vertical-align: center
+    font-size: 1.5rem
+    margin: 2px 0
+
+  &>label
+    &.hidden
+      display: none
+
+  &>input
+    padding: .25rem 1rem
+    color: $input-fg
+    background: $input-bg
+    border: 1px solid transparent
+    &:focus
+      border-color: $focus
+    &:hover
+      background: $hover
+
+  &>button
+    cursor: pointer
+    color: $input-fg
+    background: $input-bg
+    border: 1px solid transparent
+    &:focus
+      border-color: $focus
+    &:hover
+      background: $hover
+
+  &>.explanation
+    font-style: italic
+    text-align: center
+    margin: 1rem
+    height: auto

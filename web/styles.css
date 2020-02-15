@@ -1,14 +1,78 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+*, *:before, *:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
 
 html, body {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-}
+  font-family: "Roboto", sans-serif;
+  color: #e6e6e6;
+  background: #0d0d0d; }
 
 #output {
   padding: 20px;
-  text-align: center;
-}
+  text-align: center; }
+
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center; }
+
+div.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 100%;
+  align-items: center;
+  justify-content: center; }
+  @media only screen and (min-width: 300px) {
+    div.input-group {
+      width: 98vw; } }
+  @media only screen and (min-width: 480px) {
+    div.input-group {
+      width: 80vw; } }
+  @media only screen and (min-width: 768px) {
+    div.input-group {
+      width: 60vw; } }
+  @media only screen and (min-width: 1024px) {
+    div.input-group {
+      width: 40vw; } }
+  div.input-group > * {
+    width: 100%;
+    height: 2.5rem;
+    line-height: 1.5rem;
+    vertical-align: center;
+    font-size: 1.5rem;
+    margin: 2px 0; }
+  div.input-group > label.hidden {
+    display: none; }
+  div.input-group > input {
+    padding: 0.25rem 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid transparent; }
+    div.input-group > input:focus {
+      border-color: rgba(0, 103, 255, 0.5); }
+    div.input-group > input:hover {
+      background: rgba(200, 200, 255, 0.05); }
+  div.input-group > button {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid transparent; }
+    div.input-group > button:focus {
+      border-color: rgba(0, 103, 255, 0.5); }
+    div.input-group > button:hover {
+      background: rgba(200, 200, 255, 0.05); }
+  div.input-group > .explanation {
+    font-style: italic;
+    text-align: center;
+    margin: 1rem;
+    height: auto; }
+
+/*# sourceMappingURL=styles.css.map */
